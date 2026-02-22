@@ -14,7 +14,7 @@ class Square(Shape):
 
 class ShapeFactory:
     @staticmethod
-    def create_shape(shape_type):
+    def create(shape_type):
         if shape_type == "circle":
             return Circle()
         elif shape_type == "square":
