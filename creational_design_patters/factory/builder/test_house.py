@@ -1,7 +1,7 @@
 from house import House, HouseBuilder
 
 
-class TestHouse:
+class TestHouseBuilder:
     def test_house(self):
         house = House()
         assert house is not None
