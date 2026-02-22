@@ -26,3 +26,5 @@ class ShapeFactory:
             return Square()
         elif shape_type == "triangle":
             return Triangle()
+        else:
+            raise AttributeError(f"Shape type {shape_type} is not supported.")
