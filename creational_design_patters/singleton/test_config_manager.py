@@ -1,5 +1,5 @@
 import pytest
-from creational_design_patters.config_manager import ConfigManager
+from creational_design_patters.singleton.config_manager import ConfigManager
 
 
 class TestConfigManager:
