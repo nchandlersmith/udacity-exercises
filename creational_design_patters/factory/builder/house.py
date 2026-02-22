@@ -36,3 +36,8 @@ class HouseBuilder:
     def set_garage(self, garage):
         self.house.garage = garage
         return self
+
+
+class HouseDirector:
+    def __init__(self):
+        self.builder = HouseBuilder()

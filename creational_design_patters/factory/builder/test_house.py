@@ -1,4 +1,4 @@
-from house import House, HouseBuilder
+from house import House, HouseBuilder, HouseDirector
 
 
 class TestHouseBuilder:
@@ -35,3 +35,8 @@ class TestHouseBuilder:
         house_builder = HouseBuilder()
         house = house_builder.set_garage("two car").build()
         assert house.garage == "two car"
+
+class TestHouseDirector:
+    def test_house_director(self):
+        director = HouseDirector()
+        assert director is not None
