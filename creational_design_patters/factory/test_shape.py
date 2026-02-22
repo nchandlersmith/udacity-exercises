@@ -4,7 +4,7 @@ from shape import ShapeFactory
 
 class TestShape:
 
-    def test_circle_draw(self, shape_factory):
+    def test_circle_draw(self):
         circle = ShapeFactory.create("circle")
         assert circle.draw() == "Drawing a Circle"
 
