@@ -44,8 +44,8 @@ class TestHouseDirector:
     def test_house_director_builds_house(self):
         director = HouseDirector()
         house = director.create_standard_house()
-        assert house.walls == "brick"
+        assert house.walls == "vinyl siding"
         assert house.roof == "shingles"
         assert house.windows == "double pane"
         assert house.doors == "wooden"
-        assert house.garage == "two car"
+        assert house.garage == "single car"

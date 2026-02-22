@@ -44,9 +44,9 @@ class HouseDirector:
         
     def create_standard_house(self):
         return self.builder \
-            .set_walls("brick") \
+            .set_walls("vinyl siding") \
             .set_roof("shingles") \
             .set_windows("double pane") \
             .set_doors("wooden") \
-            .set_garage("two car") \
+            .set_garage("single car") \
             .build()
