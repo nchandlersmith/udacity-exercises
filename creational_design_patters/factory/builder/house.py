@@ -27,3 +27,7 @@ class HouseBuilder:
     def set_windows(self, windows):
         self.house.windows = windows
         return self
+    
+    def set_doors(self, doors):
+        self.house.doors = doors
+        return self
