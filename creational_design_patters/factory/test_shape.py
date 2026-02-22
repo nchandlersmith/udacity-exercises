@@ -15,3 +15,7 @@ class TestShape:
     def test_square_draw(self, shape_factory):
         square = shape_factory.create("square")
         assert square.draw() == "Drawing a Square"
+        
+    def test_triangle_draw(self, shape_factory):
+        triangle = shape_factory.create("triangle")
+        assert triangle.draw() == "Drawing a Triangle"

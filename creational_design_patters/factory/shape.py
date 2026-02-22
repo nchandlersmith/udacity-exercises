@@ -11,6 +11,11 @@ class Circle(Shape):
 class Square(Shape):
     def draw(self):
         return "Drawing a Square"
+    
+    
+class Triangle(Shape):
+    def draw(self):
+        return "Drawing a Triangle"
 
 class ShapeFactory:
     @staticmethod
@@ -19,3 +24,5 @@ class ShapeFactory:
             return Circle()
         elif shape_type == "square":
             return Square()
+        elif shape_type == "triangle":
+            return Triangle()
