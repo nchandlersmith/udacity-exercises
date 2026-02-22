@@ -41,3 +41,12 @@ class HouseBuilder:
 class HouseDirector:
     def __init__(self):
         self.builder = HouseBuilder()
+        
+    def create_standard_house(self):
+        return self.builder \
+            .set_walls("brick") \
+            .set_roof("shingles") \
+            .set_windows("double pane") \
+            .set_doors("wooden") \
+            .set_garage("two car") \
+            .build()
