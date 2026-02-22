@@ -4,22 +4,18 @@ from shape import ShapeFactory
 
 class TestShape:
 
-    @pytest.fixture
-    def shape_factory(self):
-        return ShapeFactory()
-
     def test_circle_draw(self, shape_factory):
-        circle = shape_factory.create("circle")
+        circle = ShapeFactory.create("circle")
         assert circle.draw() == "Drawing a Circle"
 
-    def test_square_draw(self, shape_factory):
-        square = shape_factory.create("square")
+    def test_square_draw(self):
+        square = ShapeFactory.create("square")
         assert square.draw() == "Drawing a Square"
 
-    def test_triangle_draw(self, shape_factory):
-        triangle = shape_factory.create("triangle")
+    def test_triangle_draw(self):
+        triangle = ShapeFactory.create("triangle")
         assert triangle.draw() == "Drawing a Triangle"
         
-    def test_invalid_shape(self, shape_factory):
+    def test_invalid_shape(self):
         with pytest.raises(AttributeError, match="Shape type pentagon is not supported"):
-            shape_factory.create("pentagon")
+            ShapeFactory.create("pentagon")
