@@ -20,3 +20,8 @@ class TestHouse:
         house_builder = HouseBuilder()
         house = house_builder.set_roof("shingles").build()
         assert house.roof == "shingles"
+        
+    def test_house_builder_adds_windows(self):
+        house_builder = HouseBuilder()
+        house = house_builder.set_windows("double pane").build()
+        assert house.windows == "double pane"

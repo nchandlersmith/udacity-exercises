@@ -23,3 +23,7 @@ class HouseBuilder:
     def set_roof(self, roof):
         self.house.roof = roof
         return self
+    
+    def set_windows(self, windows):
+        self.house.windows = windows
+        return self
