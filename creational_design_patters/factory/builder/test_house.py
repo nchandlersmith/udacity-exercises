@@ -30,3 +30,8 @@ class TestHouse:
         house_builder = HouseBuilder()
         house = house_builder.set_doors("wooden").build()
         assert house.doors == "wooden"
+        
+    def test_house_builder_adds_garage(self):
+        house_builder = HouseBuilder()
+        house = house_builder.set_garage("two car").build()
+        assert house.garage == "two car"
