@@ -49,3 +49,13 @@ class TestHouseDirector:
         assert house.windows == "double pane"
         assert house.doors == "wooden"
         assert house.garage == "single car"
+        
+    def test_house_director_builds_luxury_house(self):
+        director = HouseDirector()
+        house = director.create_luxury_house()
+        assert house.walls == "stone"
+        assert house.roof == "tile"
+        assert house.windows == "triple pane"
+        assert house.doors == "steel"
+        assert house.garage == "three car"
+        assert house.pool == "in-ground"

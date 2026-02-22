@@ -8,7 +8,7 @@ class House:
         self.windows = None
         self.doors = None
         self.garage = None
-
+        self.pool = None
 
 class HouseBuilder:
     def __init__(self):
@@ -36,6 +36,10 @@ class HouseBuilder:
     def set_garage(self, garage):
         self.house.garage = garage
         return self
+    
+    def set_pool(self, pool):
+        self.house.pool = pool
+        return self
 
 
 class HouseDirector:
@@ -49,4 +53,14 @@ class HouseDirector:
             .set_windows("double pane") \
             .set_doors("wooden") \
             .set_garage("single car") \
+            .build()
+            
+    def create_luxury_house(self):
+        return self.builder \
+            .set_walls("stone") \
+            .set_roof("tile") \
+            .set_windows("triple pane") \
+            .set_doors("steel") \
+            .set_garage("three car") \
+            .set_pool("in-ground") \
             .build()
