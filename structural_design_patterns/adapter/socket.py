@@ -23,7 +23,7 @@ class USPlug(Plug):
         super().__init__(110)
 
 
-class USPlugAdapter(Plug):
+class USPlugAdapter():
     def __init__(self, plug: Plug):
         super().__init__(plug.voltage)
         self._plug = plug
