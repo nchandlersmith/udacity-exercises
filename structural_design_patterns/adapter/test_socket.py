@@ -1,4 +1,4 @@
-from socket import EuropeanPlug, USPlug, EuropeanSocket, USPlugAdapter
+from socket import EuropeanPlug, USPlug, EuropeanSocket, ToEuropeanSocketAdapter
 import pytest
 
 
@@ -23,6 +23,6 @@ class TestSocket:
 
     def test_voltage_adapter(self):
         socket = EuropeanSocket()
-        plug = USPlug()
-        adapter = USPlugAdapter(plug)
+        adapter = ToEuropeanSocketAdapter(USPlug())
         assert socket.plug_in(adapter) == "success"
+        assert adapter.us_plug.connect() == 110

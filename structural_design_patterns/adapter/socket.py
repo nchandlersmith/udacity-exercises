@@ -23,14 +23,14 @@ class USPlug(Plug):
         super().__init__(110)
 
 
-class USPlugAdapter():
-    def __init__(self, plug: Plug):
-        super().__init__(plug.voltage)
-        self._plug = plug
+class ToEuropeanSocketAdapter(Plug):
+    def __init__(self, plug: USPlug):
+        super().__init__(220)
+        self._us_plug = plug
 
-    def connect(self):
-        """Overriding the connect method in the super class is why this is an adapter."""
-        return 220
+    @property
+    def us_plug(self):
+        return self._us_plug
 
 
 class EuropeanSocket():
