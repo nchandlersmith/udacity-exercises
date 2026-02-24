@@ -13,11 +13,6 @@ class Plug:
         return self._voltage
 
 
-class EuropeanPlug(Plug):
-    def __init__(self):
-        super().__init__(220)
-
-
 class USPlug(Plug):
     def __init__(self):
         super().__init__(110)
@@ -27,10 +22,10 @@ class ToEuropeanSocketAdapter(Plug):
     def __init__(self, plug: USPlug):
         super().__init__(220)
         self._us_plug = plug
-
-    @property
-    def us_plug(self):
-        return self._us_plug
+        
+    def connect(self):
+        return self._us_plug.connect() * 2
+        
 
 
 class EuropeanSocket():
