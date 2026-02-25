@@ -10,18 +10,23 @@ class Investor:
     def update(self, price):
         self._notifications.append(
             f"{self._name} notified: stock price is now {price}")
+        print(f"{self._name} notified: stock price is now {price}")
 
 
 class StockMarket():
     def __init__(self):
         self._subscribers = []
 
-    @property
+    @ property
     def subscribers(self):
         return self._subscribers
 
     def subscribe(self, investor):
         self._subscribers.append(investor)
-        
+
     def unsubscribe(self, investor):
         self.subscribers.remove(investor)
+
+    def set_price(self, price):
+        for subscriber in self.subscribers:
+            subscriber.update(price)
