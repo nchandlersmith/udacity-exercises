@@ -16,9 +16,12 @@ class StockMarket():
     def __init__(self):
         self._subscribers = []
 
-    def subscribe(self, investor: Investor):
-        self._subscribers.append(investor)
-
     @property
     def subscribers(self):
         return self._subscribers
+
+    def subscribe(self, investor):
+        self._subscribers.append(investor)
+        
+    def unsubscribe(self, investor):
+        self.subscribers.remove(investor)
