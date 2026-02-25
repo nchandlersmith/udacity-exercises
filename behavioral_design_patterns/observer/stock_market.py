@@ -17,7 +17,7 @@ class StockMarket():
     def __init__(self):
         self._subscribers = []
 
-    @ property
+    @property
     def subscribers(self):
         return self._subscribers
 
@@ -30,3 +30,13 @@ class StockMarket():
     def set_price(self, price):
         for subscriber in self.subscribers:
             subscriber.update(price)
+
+
+if __name__ == "__main__":
+    market = StockMarket()
+    investor1 = Investor("1")
+    investor2 = Investor("2")
+    market.subscribe(investor1)
+    market.subscribe(investor2)
+
+    market.set_price(133.08)
