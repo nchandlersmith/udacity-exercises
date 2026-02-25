@@ -40,3 +40,8 @@ if __name__ == "__main__":
     market.subscribe(investor2)
 
     market.set_price(133.08)
+    market.set_price(156.44)
+    
+    market.unsubscribe(investor2)
+
+    market.set_price(144.22)
