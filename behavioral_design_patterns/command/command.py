@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import time
 
 
 class Command(ABC):
@@ -57,3 +58,19 @@ class RemoteControl():
 
     def execute(self, receiver_function):
         return receiver_function()
+    
+    
+    
+if "__main__" == __name__:
+    remote = RemoteControl()
+    print(remote.execute(LightReceiver().turn_on))
+    time.sleep(1)
+    print()
+    print(remote.execute(FanReceiver().turn_on))
+    print()
+    time.sleep(2)
+    print()
+    print(remote.execute(FanReceiver().turn_off))
+    print()
+    time.sleep(1)
+    print(remote.execute(LightReceiver().turn_off))
