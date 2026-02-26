@@ -1,4 +1,4 @@
-from command import LightOnCommand, LightOffCommand, FanOnCommand, FanOffCommand, LightReceiver, FanReceiver, RemoteControl
+from command import LightOnCommand, LightOffCommand, FanOnCommand, FanOffCommand, Light, Fan, RemoteControl
 
 
 class TestCommand:
@@ -23,27 +23,27 @@ class TestCommand:
         assert result == "fan turned off"
 
     def test_light_receiver_turns_on_light(self):
-        receiver = LightReceiver()
+        receiver = Light()
         result = receiver.turn_on()
         assert result == "light turned on"
 
     def test_light_receiver_turns_off_light(self):
-        receiver = LightReceiver()
+        receiver = Light()
         result = receiver.turn_off()
         assert result == "light turned off"
 
     def test_fan_receiver_turns_on_fan(self):
-        receiver = FanReceiver()
+        receiver = Fan()
         result = receiver.turn_on()
         assert result == "fan turned on"
 
     def test_fan_receiver_turns_off_fan(self):
-        receiver = FanReceiver()
+        receiver = Fan()
         result = receiver.turn_off()
         assert result == "fan turned off"
 
     def test_remote_control_turns_on_light(self):
         remote = RemoteControl()
-        result = remote.execute(LightReceiver().turn_on)
+        result = remote.execute(Light().turn_on)
         assert isinstance(result, str)
         assert result.strip() != ""

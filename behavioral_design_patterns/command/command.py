@@ -28,7 +28,7 @@ class FanOffCommand(Command):
         return "fan turned off"
 
 
-class LightReceiver():
+class Light():
 
     def __init__(self):
         self._light_on_command = LightOnCommand()
@@ -41,7 +41,7 @@ class LightReceiver():
         return self._light_off_command.execute()
 
 
-class FanReceiver():
+class Fan():
 
     def __init__(self):
         self._fan_on_command = FanOnCommand()
@@ -58,19 +58,18 @@ class RemoteControl():
 
     def execute(self, receiver_function):
         return receiver_function()
-    
-    
-    
+
+
 if "__main__" == __name__:
     remote = RemoteControl()
-    print(remote.execute(LightReceiver().turn_on))
+    print(remote.execute(Light().turn_on))
     time.sleep(1)
     print()
-    print(remote.execute(FanReceiver().turn_on))
+    print(remote.execute(Fan().turn_on))
     print()
     time.sleep(2)
     print()
-    print(remote.execute(FanReceiver().turn_off))
+    print(remote.execute(Fan().turn_off))
     print()
     time.sleep(1)
-    print(remote.execute(LightReceiver().turn_off))
+    print(remote.execute(Light().turn_off))
