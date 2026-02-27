@@ -2,6 +2,24 @@ from abc import ABC, abstractmethod
 import time
 
 
+class Light():
+
+    def turn_on(self):
+        return "light turned on"
+
+    def turn_off(self):
+        return "light turned off"
+
+
+class Fan():
+
+    def turn_on(self):
+        return "fan turned on"
+
+    def turn_off(self):
+        return "fan turned off"
+
+
 class Command(ABC):
     @abstractmethod
     def execute(self):
@@ -9,49 +27,39 @@ class Command(ABC):
 
 
 class LightOnCommand(Command):
+
+    def __init__(self):
+        self._light = Light()
+
     def execute(self):
-        return "light turned on"
+        return self._light.turn_on()
 
 
 class LightOffCommand(Command):
+
+    def __init__(self):
+        self._light = Light()
+
     def execute(self):
-        return "light turned off"
+        return self._light.turn_off()
 
 
 class FanOnCommand(Command):
+
+    def __init__(self):
+        self._fan = Fan()
+
     def execute(self):
-        return "fan turned on"
+        return self._fan.turn_on()
 
 
 class FanOffCommand(Command):
+
+    def __init__(self):
+        self._fan = Fan()
+
     def execute(self):
-        return "fan turned off"
-
-
-class Light():
-
-    def __init__(self):
-        self._light_on_command = LightOnCommand()
-        self._light_off_command = LightOffCommand()
-
-    def turn_on(self):
-        return self._light_on_command.execute()
-
-    def turn_off(self):
-        return self._light_off_command.execute()
-
-
-class Fan():
-
-    def __init__(self):
-        self._fan_on_command = FanOnCommand()
-        self._fan_off_command = FanOffCommand()
-
-    def turn_on(self):
-        return self._fan_on_command.execute()
-
-    def turn_off(self):
-        return self._fan_off_command.execute()
+        return self._fan.turn_off()
 
 
 class RemoteControl():
@@ -62,14 +70,14 @@ class RemoteControl():
 
 if "__main__" == __name__:
     remote = RemoteControl()
-    print(remote.execute(Light().turn_on))
+    print(remote.execute(LightOnCommand().execute))
     time.sleep(1)
     print()
-    print(remote.execute(Fan().turn_on))
+    print(remote.execute(LightOffCommand().execute))
     print()
     time.sleep(2)
     print()
-    print(remote.execute(Fan().turn_off))
+    print(remote.execute(FanOnCommand().execute))
     print()
     time.sleep(1)
-    print(remote.execute(Light().turn_off))
+    print(remote.execute(FanOffCommand().execute))

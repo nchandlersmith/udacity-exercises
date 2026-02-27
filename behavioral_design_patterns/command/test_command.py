@@ -44,6 +44,6 @@ class TestCommand:
 
     def test_remote_control_turns_on_light(self):
         remote = RemoteControl()
-        result = remote.execute(Light().turn_on)
+        result = remote.execute(LightOnCommand().execute)
         assert isinstance(result, str)
         assert result.strip() != ""
