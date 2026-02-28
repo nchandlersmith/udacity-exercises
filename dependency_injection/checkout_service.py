@@ -46,3 +46,8 @@ class NotificationStrategy(ABC):
 class EmailNotification(NotificationStrategy):
     def notify(self, message):
         return f"Emailed the following message: {message}"
+    
+    
+class SMSNotification(NotificationStrategy):
+    def notify(self, message):
+        return f"Sent the following SMS message: {message}"

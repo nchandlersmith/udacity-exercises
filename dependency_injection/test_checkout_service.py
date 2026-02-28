@@ -1,4 +1,4 @@
-from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping, ExpressShipping, EmailNotification
+from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping, ExpressShipping, EmailNotification, SMSNotification
 
 
 class TestCheckoutService():
@@ -31,3 +31,8 @@ class TestCheckoutService():
         notification = EmailNotification()
         result = notification.notify("order shipped.")
         assert result == "Emailed the following message: order shipped."
+
+    def test_sms_notification(self):
+        notification = SMSNotification()
+        result = notification.notify("order shipped.")
+        assert result == "Sent the following SMS message: order shipped."
