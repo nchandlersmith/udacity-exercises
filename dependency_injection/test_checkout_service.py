@@ -1,4 +1,4 @@
-from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping, ExpressShipping, EmailNotification, SMSNotification
+from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping, ExpressShipping, EmailNotification, SMSNotification, CheckOutService
 
 
 class TestCheckoutService():
@@ -36,3 +36,11 @@ class TestCheckoutService():
         notification = SMSNotification()
         result = notification.notify("order shipped.")
         assert result == "Sent the following SMS message: order shipped."
+
+    def test_checkout_service(self):
+        service = CheckOutService(
+            CreditCardPayment(), StandardShipping(), EmailNotification())
+        result = service.checkout("KQ90227-77F", 88.29)
+        assert "Email" in result
+        assert "standard shipping" in result
+        assert "credit card" in result
