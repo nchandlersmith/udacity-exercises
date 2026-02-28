@@ -41,3 +41,8 @@ class NotificationStrategy(ABC):
     @abstractmethod
     def notify(self, message):
         pass
+    
+    
+class EmailNotification(NotificationStrategy):
+    def notify(self, message):
+        return f"Emailed the following message: {message}"
