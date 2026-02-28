@@ -25,6 +25,11 @@ class ShippingStrategy(ABC):
     @abstractmethod
     def ship(self, order_id):
         pass
+    
+    
+class StandardShipping(ShippingStrategy):
+    def ship(self, order_id):
+        return f"Order {order_id} shipped via standard shipping."
 
 
 class NotificationStrategy(ABC):

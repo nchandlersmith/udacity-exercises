@@ -1,4 +1,4 @@
-from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment
+from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping
 
 
 class TestCheckoutService():
@@ -16,3 +16,8 @@ class TestCheckoutService():
         card = BitcoinPayment()
         result = card.pay(1197.01)
         assert result == "Processing Bitcoin payment of $1197.01."
+
+    def test_standard_shipping(self):
+        shipping = StandardShipping()
+        result = shipping.ship("AA18903-45K")
+        assert result == "Order AA18903-45K shipped via standard shipping."
