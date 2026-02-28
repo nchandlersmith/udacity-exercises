@@ -30,6 +30,11 @@ class ShippingStrategy(ABC):
 class StandardShipping(ShippingStrategy):
     def ship(self, order_id):
         return f"Order {order_id} shipped via standard shipping."
+    
+    
+class ExpressShipping(ShippingStrategy):
+    def ship(self, order_id):
+        return f"Order {order_id} shipped via express shipping."
 
 
 class NotificationStrategy(ABC):

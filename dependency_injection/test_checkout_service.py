@@ -1,4 +1,4 @@
-from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping
+from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment, StandardShipping, ExpressShipping
 
 
 class TestCheckoutService():
@@ -21,3 +21,8 @@ class TestCheckoutService():
         shipping = StandardShipping()
         result = shipping.ship("AA18903-45K")
         assert result == "Order AA18903-45K shipped via standard shipping."
+
+    def test_express_shipping(self):
+        shipping = ExpressShipping()
+        result = shipping.ship("AB88230-11J")
+        assert result == "Order AB88230-11J shipped via express shipping."
