@@ -15,6 +15,10 @@ class CreditCardPayment(PaymentStrategy):
 class PayPalPayment(PaymentStrategy):
     def pay(self, amount):
         return f"Processing PayPal payment of ${amount}."
+    
+class BitcoinPayment:
+    def pay(self, amount):
+        return f"Processing Bitcoin payment of ${amount}."
 
 
 class ShippingStrategy(ABC):

@@ -1,4 +1,4 @@
-from checkout_service import CreditCardPayment, PayPalPayment
+from checkout_service import CreditCardPayment, PayPalPayment, BitcoinPayment
 
 
 class TestCheckoutService():
@@ -11,3 +11,8 @@ class TestCheckoutService():
         card = PayPalPayment()
         result = card.pay(67.42)
         assert result == "Processing PayPal payment of $67.42."
+
+    def test_bitcoin_payment(self):
+        card = BitcoinPayment()
+        result = card.pay(1197.01)
+        assert result == "Processing Bitcoin payment of $1197.01."
