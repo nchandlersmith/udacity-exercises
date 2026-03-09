@@ -1,5 +1,7 @@
-from socket import USPlug, EuropeanSocket, ToEuropeanSocketAdapter
+
 import pytest
+
+from structural_design_patterns.adapter.socket import USPlug, EuropeanSocket, ToEuropeanSocketAdapter
 
 
 class TestSocket:
