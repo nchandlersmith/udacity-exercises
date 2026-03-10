@@ -21,7 +21,7 @@ User Activates Mag-Lock: {
         central.a -> auth.a: is authorized?
         break - unauthorized: {
             auth.a -> central.a: unauthorized
-            central.a -> browser.a: unauthorized
+            central.a -> browser: unauthorized
         }
         auth.a -> central.a: authorized
     }
