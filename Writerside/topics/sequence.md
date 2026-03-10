@@ -9,7 +9,7 @@ User Activates Mag-Lock: {
     lock: Mag-Lock
     notification: Notification Server
     
-    browser -> gateway.a: request activate
+    browser -> gateway: request activate
     gateway -> central.a: forward request
     central.a -> central.a: user logged in
     break - user not present failure: {
