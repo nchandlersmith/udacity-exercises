@@ -9,12 +9,13 @@ User Activates Mag-Lock: {
     lock: Mag-Lock
     notification: Notification Server
     
-    browser.a -> gateway.a: request activate
-    gateway.a -> gateway.a: verify user logged in
+    browser -> gateway.a: request activate
+    gateway -> central.a: forward request
+    central.a -> central.a: user logged in
     break - user not present failure: {
-        gateway.a -> browser.a: not logged in 
+        central.a -> gateway: not logged in
+        gateway -> browser: not logged in 
     }
-    gateway.a -> central.a: request open lock
     
     authorize: {
         central.a -> auth.a: is authorized?
@@ -29,7 +30,7 @@ User Activates Mag-Lock: {
         central.a -> lock.a: activate
         lock.a -> central.a: reply
         central.a -> notification.a: prettied lock reply
-        notification.a -> browser.a: prettied lock reply
+        notification.a -> browser: prettied lock reply
     }
 }
 ```
