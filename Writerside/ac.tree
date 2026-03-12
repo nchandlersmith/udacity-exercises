@@ -6,6 +6,7 @@
                  name="Architect Course" start-page="d2_example.md">
 
     <toc-element topic="d2_example.md"/>
+    <toc-element topic="Security-Container-Diagram.md"/>
     <toc-element topic="Event Flow.md"/>
     <toc-element topic="sequence.md"/>
     <toc-element topic="d2_example.md"/>
